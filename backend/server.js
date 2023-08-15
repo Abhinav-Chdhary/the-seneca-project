@@ -19,8 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+//to send articles to frontend
+app.use("/api", require("./Routes/getArticles"));
 
 app.listen(5000);
