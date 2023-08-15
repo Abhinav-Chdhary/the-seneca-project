@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
-const mongoURI = "";
+const mongoURI =
+  "mongodb+srv://abhinavchdhary:saymyname@cluster0.d4xeahs.mongodb.net/seneca?retryWrites=true&w=majority";
 
 const mongoDB = async () => {
   try {
-    console.log("okay I guess");
+    await mongoose.connect(mongoURI);
+    global.fetched_articles = await mongoose.connection
+      .collection("articles")
+      .find({})
+      .toArray();
   } catch (error) {
     console.error("An unexpected error occured" + error);
   }
