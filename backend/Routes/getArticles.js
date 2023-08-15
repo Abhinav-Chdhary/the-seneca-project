@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/getArticles", (req, res) => {
+router.get("/getArticles", (req, res) => {
   try {
     res.send(global.fetched_articles);
   } catch (error) {
