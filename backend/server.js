@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
-//const mongoDB = require("")
+const mongoDB = require("./db");
+mongoDB()
+  .then(() => {
+    console.log("Database operation completed successfully.");
+  })
+  .catch((error) => {
+    console.error("An error occurred during database operation:", error);
+  });
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
