@@ -1,5 +1,6 @@
-import { Box, Card, CardBody } from "@chakra-ui/react";
+import { Box, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import React from "react";
+import ArticleCard from "./ArticleCard";
 
 export default function SearchBox() {
   return (
@@ -16,12 +17,13 @@ export default function SearchBox() {
     >
       <Box p={2}>What did Seneca say about </Box>
       <Box p={2}>
-        <input type="text" />
-        <span> ?</span>
+        <InputGroup size="md">
+          <Input placeholder="shortness of life" />
+          <InputRightAddon children="?" />
+        </InputGroup>
       </Box>
-      <Card variant={"elevated"}>
-        <CardBody>This is a card</CardBody>
-      </Card>
+      <ArticleCard />
+      <ArticleCard />
     </Box>
   );
 }
