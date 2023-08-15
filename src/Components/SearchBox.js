@@ -4,9 +4,9 @@ import React from "react";
 export default function SearchBox() {
   return (
     <Box
-      backgroundImage="https://source.unsplash.com/YIfFVwDcgu8"
+      backgroundImage="https://source.unsplash.com/qVotvbsuM_c"
       backgroundRepeat="no-repeat"
-      backgroundSize="100vw"
+      backgroundSize="cover"
       display="flex"
       flexDirection="column"
       alignItems="center"
