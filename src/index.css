@@ -2,18 +2,3 @@
 * {
   font-family: "Luxurious Roman", cursive;
 }
-.searchBox {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-}
-.question {
-  margin: 1rem 0;
-}
-body {
-  background-image: url(https://source.unsplash.com/YIfFVwDcgu8);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
