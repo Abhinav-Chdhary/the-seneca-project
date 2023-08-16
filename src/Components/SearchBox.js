@@ -5,14 +5,18 @@ import ArticleCard from "./ArticleCard";
 export default function SearchBox() {
   const [articles, setArticles] = useState([]);
   const loadArticles = async () => {
-    let response = await fetch("http://localhost:5000/api/getArticles", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    response = await response.json();
-    setArticles([...response]);
+    try {
+      let response = await fetch("http://localhost:5000/api/getArticles", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      response = await response.json();
+      setArticles([...response]);
+    } catch (error) {
+      alert("An unexpected error occured");
+    }
   };
   useEffect(() => {
     loadArticles();
