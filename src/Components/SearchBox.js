@@ -1,4 +1,10 @@
-import { Box, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
+import {
+  Accordion,
+  Box,
+  Input,
+  InputGroup,
+  InputRightAddon,
+} from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 
@@ -45,9 +51,9 @@ export default function SearchBox() {
         {articles.length > 0 ? (
           articles.map((item) => {
             return (
-              <Box key={item._id}>
+              <Accordion key={item._id} allowToggle>
                 <ArticleCard {...item} />
-              </Box>
+              </Accordion>
             );
           })
         ) : (
