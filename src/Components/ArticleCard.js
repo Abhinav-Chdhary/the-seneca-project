@@ -18,7 +18,7 @@ export default function ArticleCard({ ...articleDetails }) {
           <AccordionIcon />
         </AccordionButton>
       </h2>
-      <AccordionPanel pb={4} fontSize={16} width="100%" border="1px">
+      <AccordionPanel pb={4} fontSize={16} border="1px">
         {articleDetails.body}
       </AccordionPanel>
     </AccordionItem>
