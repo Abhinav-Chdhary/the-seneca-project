@@ -11,6 +11,7 @@ import ArticleCard from "./ArticleCard";
 export default function SearchBox() {
   const [articles, setArticles] = useState([]);
   const [search, setSearch] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const loadArticles = async () => {
     try {
@@ -29,7 +30,29 @@ export default function SearchBox() {
   useEffect(() => {
     loadArticles();
   }, []);
-
+  //for search suggestions
+  const url =
+    "https://web-search-autocomplete.p.rapidapi.com/autocomplete?query=to&language=en&region=us";
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "96c6d1bb3emsh36e1c6665ba1936p1902bdjsn80a504f557e1",
+      "X-RapidAPI-Host": "web-search-autocomplete.p.rapidapi.com",
+    },
+  };
+  useEffect(() => {
+    const loadSuggestions = async () => {
+      try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+        setSuggestions(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    loadSuggestions();
+  }, [search]);
   return (
     <Box
       backgroundImage="https://source.unsplash.com/qVotvbsuM_c"
