@@ -10,6 +10,8 @@ import ArticleCard from "./ArticleCard";
 
 export default function SearchBox() {
   const [articles, setArticles] = useState([]);
+  const [search, setSearch] = useState("");
+
   const loadArticles = async () => {
     try {
       let response = await fetch("http://localhost:5000/api/getArticles", {
@@ -43,23 +45,33 @@ export default function SearchBox() {
       <Box p={2}>What did Seneca say about </Box>
       <Box p={2}>
         <InputGroup size="md">
-          <Input placeholder="shortness of life" />
+          <Input
+            placeholder="shortness of life"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
           <InputRightAddon children="?" />
         </InputGroup>
       </Box>
-      <Box>
+      <Accordion allowToggle>
         {articles.length > 0 ? (
-          articles.map((item) => {
-            return (
-              <Accordion key={item._id} allowToggle>
-                <ArticleCard {...item} />
-              </Accordion>
-            );
-          })
+          articles
+            .filter((item) =>
+              item.title.toLowerCase().includes(search.toLowerCase())
+            )
+            .map((item) => {
+              return (
+                <Box key={item._id}>
+                  <ArticleCard {...item} />
+                </Box>
+              );
+            })
         ) : (
           <Box></Box>
         )}
-      </Box>
+      </Accordion>
     </Box>
   );
 }
