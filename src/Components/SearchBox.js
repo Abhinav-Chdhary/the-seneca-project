@@ -65,7 +65,7 @@ export default function SearchBox() {
       height="100vh"
       fontSize={25}
     >
-      <Box p={2}>What did Seneca say about </Box>
+      <Box p={2}>What would Seneca say about </Box>
       <Box p={2}>
         <InputGroup size="md">
           <Input
@@ -82,7 +82,7 @@ export default function SearchBox() {
         {articles.length > 0 ? (
           articles
             .filter((item) =>
-              item.title.toLowerCase().includes(search.toLowerCase())
+              item.body.toLowerCase().includes(search.toLowerCase())
             )
             .map((item) => {
               return (
