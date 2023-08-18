@@ -31,8 +31,7 @@ export default function SearchBox() {
     loadArticles();
   }, []);
   //for search suggestions
-  const url =
-    "https://web-search-autocomplete.p.rapidapi.com/autocomplete?query=to&language=en&region=us";
+  const url = `https://web-search-autocomplete.p.rapidapi.com/autocomplete?query=${search}&language=en&region=us`;
   const options = {
     method: "GET",
     headers: {
@@ -44,9 +43,10 @@ export default function SearchBox() {
     const loadSuggestions = async () => {
       try {
         const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-        setSuggestions(result);
+        const result = await response.json();
+        const queries = result.data.map((item) => item.query);
+        console.log(queries);
+        setSuggestions(queries);
       } catch (error) {
         console.error(error);
       }
@@ -75,9 +75,22 @@ export default function SearchBox() {
               setSearch(e.target.value);
             }}
           />
+
           <InputRightAddon children="?" />
         </InputGroup>
       </Box>
+      {suggestions.length > 0 ? (
+        suggestions.map((item, index) => {
+          return (
+            <li key={index} style={{ listStyle: "none" }}>
+              {item}
+              <br />
+            </li>
+          );
+        })
+      ) : (
+        <Box></Box>
+      )}
       <Accordion allowToggle>
         {articles.length > 0 ? (
           articles
