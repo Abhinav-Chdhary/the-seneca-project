@@ -45,13 +45,13 @@ export default function SearchBox() {
         const response = await fetch(url, options);
         const result = await response.json();
         const queries = result.data.map((item) => item.query);
-        console.log(queries);
         setSuggestions(queries);
       } catch (error) {
         console.error(error);
       }
     };
-    loadSuggestions();
+    if (search.length > 0) loadSuggestions();
+    else setSuggestions([]);
   }, [search]);
   return (
     <Box
