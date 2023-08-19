@@ -9,7 +9,7 @@ import React from "react";
 
 export default function ArticleCard({ ...articleDetails }) {
   return (
-    <AccordionItem bg="#1e1c6b">
+    <AccordionItem bg="#1e1c6b" w={"xl"}>
       <AccordionButton _expanded={{ bg: "tomato" }}>
         <Box as="span" flex="1" textAlign="left" fontSize={25}>
           {articleDetails.title}
