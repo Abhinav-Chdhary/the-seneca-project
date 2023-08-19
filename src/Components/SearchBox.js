@@ -1,6 +1,7 @@
 import {
   Accordion,
   Box,
+  Button,
   Input,
   InputGroup,
   InputRightAddon,
@@ -78,19 +79,29 @@ export default function SearchBox() {
 
           <InputRightAddon children="?" />
         </InputGroup>
+        <Box w={"md"}>
+          {suggestions.length > 0 ? (
+            suggestions.map((item, index) => {
+              return (
+                <Button
+                  key={index}
+                  style={{ listStyle: "none" }}
+                  onClick={(e) => {
+                    setSearch(item);
+                  }}
+                  m={0.5}
+                >
+                  {item}
+                  <br />
+                </Button>
+              );
+            })
+          ) : (
+            <Box></Box>
+          )}
+        </Box>
       </Box>
-      {suggestions.length > 0 ? (
-        suggestions.map((item, index) => {
-          return (
-            <li key={index} style={{ listStyle: "none" }}>
-              {item}
-              <br />
-            </li>
-          );
-        })
-      ) : (
-        <Box></Box>
-      )}
+
       <Accordion allowToggle>
         {articles.length > 0 ? (
           articles
