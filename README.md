@@ -12,5 +12,5 @@ Add a machine learning model to this, which will complete the project objective.
 
 ## Screenshots:
 ![Seneca1](https://github.com/Abhinav-Chdhary/the-seneca-project/assets/67590196/86a2ebe9-a734-4d1e-85b1-f8712877c1e8)
-![Seneca3](https://github.com/Abhinav-Chdhary/the-seneca-project/assets/67590196/3b490f45-e0f4-445a-bf47-444d652f7485)
 ![Seneca2](https://github.com/Abhinav-Chdhary/the-seneca-project/assets/67590196/29952d55-a564-4a38-bda6-01198f3cfc60)
+![Seneca3](https://github.com/Abhinav-Chdhary/the-seneca-project/assets/67590196/3b490f45-e0f4-445a-bf47-444d652f7485)
